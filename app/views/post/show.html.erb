@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-header">
+   <%= @post.title %>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p><%= @post.content %></p>
+      <footer class="blockquote-footer">
+      	<form action="/post/create_reply/<%= @post.id %>">
+      		<input type="text" name="content">
+      		<input type="submit" value="댓글!!!!">
+      		
+      	</form>
+      </footer>
+    </blockquote>
+  </div>
+</div>
+
+<!-- 관계 설정이 되어 있기 때문에 호출 해 올 수 있다. -->
+<% @post.replies.each do |r| %>	
+	<div class="card">
+  		<div class="card-body">
+   			<p><%= r.content %></p>
+  		</div>	
+	</div>	
+<%end%> 

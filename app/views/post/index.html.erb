@@ -1,0 +1,21 @@
+<h1> 여기는 인덱스 입니다.</h1>
+<a href="/post/new">글 작성</a>
+
+<% @posts.each do |post|%>
+<!-- 
+	<p><%= post.title %></p>
+	<p><%= post.content %></p>
+	<a href="/post/show/<%= post.id%>"></a>
+ -->
+<div class="card" style="width: 20rem;">
+  
+  <div class="card-body">
+    <h4 class="card-title"><%= post.title %></h4>
+    <p class="card-text"><%= post.content %></p>
+    <a href="/post/show/<%= post.id%>" class="btn btn-primary">보기</a>
+    <a href="/post/edit/<%= post.id%>" class="btn btn-primary">수정</a>
+    <a href="/post/destroy/<%= post.id%>" class="btn btn-primary">삭제</a>
+  </div>
+</div>
+
+<%end%>
